@@ -3,10 +3,11 @@
 [ext_resource type="Script" path="res://hud.gd" id="1_f74jc"]
 [ext_resource type="FontFile" uid="uid://b6s76cqrpjimk" path="res://fonts/Xolonium-Regular.ttf" id="1_yrcs2"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_g3l8p"]
+[sub_resource type="InputEventAction" id="InputEventAction_1paq5"]
+action = &"start_game"
 
 [sub_resource type="Shortcut" id="Shortcut_wklhv"]
-events = [SubResource("InputEventAction_g3l8p")]
+events = [SubResource("InputEventAction_1paq5")]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_f74jc")
@@ -24,6 +25,17 @@ theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HiScoreLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -176.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_yrcs2")
+theme_override_font_sizes/font_size = 50
+text = "Hi：10"
 
 [node name="Message" type="Label" parent="."]
 anchors_preset = 8

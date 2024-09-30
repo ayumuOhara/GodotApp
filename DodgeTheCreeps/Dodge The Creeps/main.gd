@@ -3,6 +3,7 @@ extends Node
 #aaaaaa
 
 var score : int
+var hiScore : int
 var mob_scene = preload("res://mob.tscn")
 var n_score_timer
 var n_mob_timer
@@ -21,6 +22,7 @@ func main():
 
 func play():
 	score=0
+	hiScore=10
 	n_hud.update_score(score)
 	await n_hud.wait_start()  # スタートボタンが押されるのを待つ
 	n_sound.play_bgm()
@@ -94,6 +96,10 @@ func _on_mob_timer_timeout():
 # ScoreTimer から一定時間ごとに呼ばれる
 func _on_score_timer_timeout():
 	score +=1
+	n_sound.play_score()
+	if score > hiScore:
+		hiScore=score
+		n_hud.update_hi_score(hiScore)
 	n_hud.update_score(score)
 
 func _on_player_hit():

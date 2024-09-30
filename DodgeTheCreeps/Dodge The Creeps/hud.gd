@@ -1,13 +1,16 @@
 extends CanvasLayer
 
 var n_score_label
+var n_hi_score_label
 var n_message
 var n_start_button
 var is_start_pressed
+var hi_score_text :String = "Hi : "
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	n_score_label=get_node("ScoreLabel")
+	n_hi_score_label=get_node("HiScoreLabel")
 	n_message=get_node("Message")
 	n_start_button=get_node("StartButton")
 
@@ -35,6 +38,10 @@ func wait_start():
 # スコア更新
 func update_score(score):
 	n_score_label.text=str(score)
+
+# ハイスコア更新
+func update_hi_score(hiScore):
+	n_hi_score_label.text=str(hi_score_text + str(hiScore))
 
 func _on_start_button_pressed():
 	is_start_pressed=true

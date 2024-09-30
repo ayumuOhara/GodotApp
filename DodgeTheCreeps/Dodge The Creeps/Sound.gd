@@ -2,11 +2,15 @@ extends Node
 
 var n_bgm
 var n_game_over
+var n_score
+var n_jump
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	n_bgm = get_node("BGM")
 	n_game_over = get_node("GameOver")
+	n_score = get_node("ScoreSound")
+	n_jump = get_node("Jump")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -20,3 +24,9 @@ func stop_bgm():
 
 func play_game_over():
 	n_game_over.play()
+	
+func play_score():
+	n_score.play()
+	
+func play_jump():
+	n_jump.play()
