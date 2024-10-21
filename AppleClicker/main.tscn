@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdptu078au15y"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8n6aj"]
+[ext_resource type="Texture2D" uid="uid://dikelqxeytl1n" path="res://assets/bg.png" id="1_k0o8l"]
+[ext_resource type="Texture2D" uid="uid://dpe1wjrnmbbqd" path="res://assets/apple.png" id="2_y33h1"]
+[ext_resource type="PackedScene" uid="uid://dr8vq17gd1erx" path="res://time_record.tscn" id="4_kt5jq"]
+[ext_resource type="PackedScene" uid="uid://u325kvu3gita" path="res://sound.tscn" id="5_e62gi"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("n_time_record", "n_sound")]
+script = ExtResource("1_8n6aj")
+n_time_record = NodePath("HUD/TimeRecord")
+n_sound = NodePath("Sound")
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_k0o8l")
+centered = false
+
+[node name="Apple" type="Sprite2D" parent="."]
+position = Vector2(450, 175)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_y33h1")
+centered = false
+
+[node name="SecTimer" type="Timer" parent="."]
+
+[node name="TreeTimer" type="Timer" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="AppleText" type="Label" parent="HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 70
+text = "0 Apples"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TreeButton" type="Button" parent="HUD"]
+offset_top = 30.0
+offset_right = 400.0
+offset_bottom = 164.0
+theme_override_font_sizes/font_size = 45
+text = "リンゴの木 x 0
+(10 apples)"
+
+[node name="PowerButton" type="Button" parent="HUD"]
+offset_top = 200.0
+offset_right = 400.0
+offset_bottom = 334.0
+theme_override_font_sizes/font_size = 45
+text = " クリックパワー x 0
+(100 apples)"
+
+[node name="TimeRecord" parent="HUD" instance=ExtResource("4_kt5jq")]
+
+[node name="Sound" parent="." instance=ExtResource("5_e62gi")]
+
+[connection signal="timeout" from="SecTimer" to="." method="_on_sec_timer_timeout"]
+[connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
+[connection signal="pressed" from="HUD/TreeButton" to="." method="_on_tree_button_pressed"]
+[connection signal="pressed" from="HUD/PowerButton" to="." method="_on_power_button_pressed"]
