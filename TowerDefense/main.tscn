@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://byqp6rjwhakse"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_is2b5"]
+[ext_resource type="Script" path="res://main.gd" id="1_is2b5"]
 [ext_resource type="Texture2D" uid="uid://qbyvvu2ch6l4" path="res://assets/skybg.png" id="2_1ulhu"]
 [ext_resource type="PackedScene" uid="uid://c4o6mpdxtqu85" path="res://hud.tscn" id="3_ax4gg"]
 

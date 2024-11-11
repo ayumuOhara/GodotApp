@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://532fxr60yss3"]
 
-[ext_resource type="Script" path="res://Sound.gd" id="1_saror"]
+[ext_resource type="Script" path="res://sound.gd" id="1_saror"]
 [ext_resource type="AudioStream" uid="uid://crg51y41kj8pa" path="res://assets/Fight1.ogg" id="2_7ulo3"]
 [ext_resource type="AudioStream" uid="uid://da8o1tde7f3ad" path="res://assets/Hit.ogg" id="3_aj1qq"]
 
