@@ -1,0 +1,151 @@
+[gd_scene load_steps=19 format=3 uid="uid://g3dci2bvoxdg"]
+
+[ext_resource type="Texture2D" uid="uid://5xbicftmdbcf" path="res://Platformer_assets/assets/godou-san-dot.png" id="1_iteg7"]
+[ext_resource type="Script" path="res://player.gd" id="1_ueppn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iavcu"]
+size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls552"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn8cp"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5miga"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3op6o"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1115"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up2rr"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01irf"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aimjm"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq87y"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e8oa"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggvgo"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5825"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pctqu"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt3aw"]
+atlas = ExtResource("1_iteg7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwatq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls552")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn8cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5miga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3op6o")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1115")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up2rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01irf")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aimjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq87y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e8oa")
+}],
+"loop": true,
+"name": &"land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggvgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5825")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pctqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt3aw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("n_collision", "n_anim", "n_camera")]
+script = ExtResource("1_ueppn")
+n_collision = NodePath("CollisionShape2D")
+n_anim = NodePath("AnimatedSprite2D")
+n_camera = NodePath("Camera2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iavcu")
+one_way_collision_margin = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_pwatq")
+animation = &"land"
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsdyybaol7xoy"]
+
+[ext_resource type="Script" path="res://Goal.gd" id="1_tk6dw"]
+[ext_resource type="Texture2D" uid="uid://bhbjt1s0tx1wg" path="res://Platformer_assets/assets/takarabako.png" id="2_h5ffn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa7yd"]
+size = Vector2(32, 26)
+
+[node name="Goal" type="Area2D" node_paths=PackedStringArray("n_sprite")]
+script = ExtResource("1_tk6dw")
+n_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_h5ffn")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_xa7yd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
