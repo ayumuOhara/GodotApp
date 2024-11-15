@@ -6,11 +6,11 @@
 
 [node name="Sound" type="Node" node_paths=PackedStringArray("n_bgm", "n_se_list")]
 script = ExtResource("1_saror")
-n_bgm = NodePath("AudioStreamPlayer")
-n_se_list = [NodePath("AudioStreamPlayer2")]
+n_bgm = NodePath("BGM")
+n_se_list = [NodePath("HitSE")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_7ulo3")
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+[node name="HitSE" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_aj1qq")

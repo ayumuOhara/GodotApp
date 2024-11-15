@@ -241,6 +241,7 @@ n_attack_start_collision = NodePath("SoldierAttackAreaStart/CollisionShape2D")
 n_soldier_collision = NodePath("SoldierArea/CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -50)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_hxosu")
 animation = &"attack"

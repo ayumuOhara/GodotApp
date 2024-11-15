@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 al_common="*res://common.gd"
-al_sound="*res://sound.gd"
+al_sound="*res://sound.tscn"
 
 [dotnet]
 

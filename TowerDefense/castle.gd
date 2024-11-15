@@ -25,7 +25,7 @@ func print_hp():
 func init(is_player):
 	is_player_side=is_player
 	var idx = 0
-	if is_player:
+	if is_player == false:
 		idx=1	
 	n_sprite.texture = castle_image[ idx ]
 	hp=max_hp
@@ -40,7 +40,7 @@ func is_dead():
 	return hp<=0
 
 # Area2Dになにかか衝突した
-func _on_area_2d_area_entered(area):
+func _on_area_area_entered(area):
 	if area.get_parent().is_player_side==is_player_side:
 		return
 	if area.name=="SoldierAttackArea":
