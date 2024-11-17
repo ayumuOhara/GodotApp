@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp4upbtra4dy5"]
+
+[ext_resource type="Script" path="res://test/sound_test.gd" id="1_su5nu"]
+[ext_resource type="PackedScene" uid="uid://32sc1oo14g3h" path="res://sound.tscn" id="1_y730h"]
+
+[node name="SoundTest" type="Node"]
+script = ExtResource("1_su5nu")
+
+[node name="Sound" parent="." instance=ExtResource("1_y730h")]

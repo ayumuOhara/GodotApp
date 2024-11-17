@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0lw1453oxp6d"]
+
+[ext_resource type="Texture2D" uid="uid://chy8y3xmiglf4" path="res://Aviones_assets/assets/image/logo gda 56.png" id="1_7ipki"]
+[ext_resource type="Script" path="res://gda.gd" id="1_ella3"]
+[ext_resource type="FontFile" uid="uid://bllpch0gbdswj" path="res://Aviones_assets/assets/fonts/Kenney Mini.ttf" id="2_op23x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xg8v0"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 1)
+
+[node name="GDA" type="CanvasLayer" node_paths=PackedStringArray("n_popup_panel", "n_url_button")]
+script = ExtResource("1_ella3")
+n_popup_panel = NodePath("PopupPanel")
+n_url_button = NodePath("PopupPanel/Control/VBoxContainer/HBoxContainer4/URL")
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+position = Vector2i(-320, 0)
+size = Vector2i(320, 240)
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_xg8v0")
+
+[node name="Control" type="Control" parent="PopupPanel"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupPanel/Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PopupPanel/Control/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_7ipki")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopupPanel/Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PopupPanel/Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.223529, 0.513726, 0.768627, 1)
+theme_override_colors/font_shadow_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_op23x")
+theme_override_font_sizes/font_size = 18
+text = "Creat your own video games"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PopupPanel/Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PopupPanel/Control/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.294118, 0.254902, 0.85098, 1)
+theme_override_colors/font_shadow_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_op23x")
+theme_override_font_sizes/font_size = 20
+text = "I teach you"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PopupPanel/Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="URL" type="Button" parent="PopupPanel/Control/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_op23x")
+text = "gamedevargentina.com"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PopupPanel/Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PopupPanel/Control/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.298039, 0.298039, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_op23x")
+theme_override_font_sizes/font_size = 13
+text = "Assets of Kenney.nl"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PopupPanel/Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Return" type="Button" parent="PopupPanel/Control/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_op23x")
+text = "return"
+
+[connection signal="pressed" from="PopupPanel/Control/VBoxContainer/HBoxContainer4/URL" to="." method="_on_url_pressed"]
+[connection signal="pressed" from="PopupPanel/Control/VBoxContainer/HBoxContainer6/Return" to="." method="_on_return_pressed"]

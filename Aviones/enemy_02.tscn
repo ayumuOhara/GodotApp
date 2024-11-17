@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnipxa6eqhqk"]
+
+[ext_resource type="Texture2D" uid="uid://c2sm5xl6etyy6" path="res://Aviones_assets/assets/image/ships/ship_0006.png" id="1_4qgkk"]
+[ext_resource type="Script" path="res://enemy_02.gd" id="1_cc78b"]
+[ext_resource type="Texture2D" uid="uid://cyexmf2nbh37y" path="res://Aviones_assets/assets/image/tiles/tile_0004.png" id="2_e3idp"]
+[ext_resource type="Texture2D" uid="uid://txygh5cee4cu" path="res://Aviones_assets/assets/image/tiles/tile_0005.png" id="3_x1uov"]
+[ext_resource type="Texture2D" uid="uid://bpr6rkot38f3r" path="res://Aviones_assets/assets/image/tiles/tile_0006.png" id="4_tgs7f"]
+[ext_resource type="Texture2D" uid="uid://cuxdpa714mm0c" path="res://Aviones_assets/assets/image/tiles/tile_0007.png" id="5_8xgty"]
+[ext_resource type="Texture2D" uid="uid://cx2khxyumumw8" path="res://Aviones_assets/assets/image/tiles/tile_0008.png" id="6_3sm76"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20p17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4qgkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e3idp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x1uov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tgs7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8xgty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3sm76")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ixas"]
+size = Vector2(18, 8)
+
+[node name="Enemy_02" type="Area2D" node_paths=PackedStringArray("n_shadow", "n_anim")]
+script = ExtResource("1_cc78b")
+n_shadow = NodePath("Sprite2D")
+n_anim = NodePath("AnimatedSprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.372549)
+position = Vector2(3, 3)
+texture = ExtResource("1_4qgkk")
+flip_v = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_20p17")
+animation = &"explode"
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2ixas")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

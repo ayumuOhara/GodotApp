@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cobvrccuk7khn"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_fo8il"]
+[ext_resource type="PackedScene" uid="uid://doq8hw8hpk5ua" path="res://level_map.tscn" id="2_silwl"]
+[ext_resource type="Script" path="res://spawner.gd" id="3_8o7um"]
+[ext_resource type="PackedScene" uid="uid://w7krah6sjmpj" path="res://player.tscn" id="3_culi4"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("n_player", "n_spawner")]
+script = ExtResource("1_fo8il")
+n_player = NodePath("Player")
+n_spawner = NodePath("Spawner")
+
+[node name="LevelMap" parent="." instance=ExtResource("2_silwl")]
+
+[node name="Player" parent="." instance=ExtResource("3_culi4")]
+
+[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("n_timer")]
+script = ExtResource("3_8o7um")
+n_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Spawner"]
+wait_time = 3.0
+autostart = true
+
+[node name="DifficultTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="level_complete" from="Player" to="." method="_on_player_level_complete"]
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="DifficultTimer" to="." method="_on_difficult_timer_timeout"]

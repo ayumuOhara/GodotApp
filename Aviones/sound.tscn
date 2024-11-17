@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://32sc1oo14g3h"]
+
+[ext_resource type="Script" path="res://sound.gd" id="1_x0gjx"]
+[ext_resource type="AudioStream" uid="uid://cgdrrbr6m838m" path="res://Aviones_assets/assets/audio/explosionCrunch_001.ogg" id="2_6fodk"]
+[ext_resource type="AudioStream" uid="uid://ckgihnuqwj45p" path="res://Aviones_assets/assets/audio/laserRetro_000.ogg" id="3_nmp8o"]
+[ext_resource type="AudioStream" uid="uid://cuftq2f5aoaa8" path="res://Aviones_assets/assets/audio/quantum_2.mp3" id="4_pwyec"]
+[ext_resource type="AudioStream" uid="uid://bb5vh577ni6ga" path="res://Aviones_assets/assets/audio/quantum_2_percu.mp3" id="5_h3qpi"]
+
+[node name="Sound" type="Node" node_paths=PackedStringArray("n_se_list", "n_bgm_list")]
+script = ExtResource("1_x0gjx")
+n_se_list = [NodePath("AudioStreamPlayer"), NodePath("AudioStreamPlayer2")]
+n_bgm_list = [NodePath("AudioStreamPlayer3"), NodePath("AudioStreamPlayer4")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6fodk")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nmp8o")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pwyec")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_h3qpi")
