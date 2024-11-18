@@ -19,6 +19,8 @@ stream = ExtResource("3_nmp8o")
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_pwyec")
+volume_db = 24.0
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_h3qpi")
+volume_db = 12.0
