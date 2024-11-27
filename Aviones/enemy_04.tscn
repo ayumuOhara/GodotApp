@@ -41,6 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_286vi"]
+size = Vector2(24, 8)
 
 [node name="Enemy_04" type="Path2D" node_paths=PackedStringArray("n_follow", "n_area", "n_shadow", "n_anim", "n_collision") groups=["enemy"]]
 curve = SubResource("Curve2D_8s0b0")
@@ -55,7 +56,7 @@ n_collision = NodePath("Area2D/CollisionShape2D")
 position = Vector2(0, -2)
 rotation = 1.5742
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 modulate = Color(0, 0, 0, 0.372549)

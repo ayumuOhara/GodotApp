@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://tr23n8rhnj18"]
+
+[ext_resource type="Texture2D" uid="uid://dfubtrgdsdam6" path="res://assets/dokan.png" id="1_lwwtl"]
+[ext_resource type="Script" path="res://dokan.gd" id="1_q4pff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jth63"]
+size = Vector2(176, 600)
+
+[node name="Dokan" type="StaticBody2D"]
+script = ExtResource("1_q4pff")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lwwtl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jth63")

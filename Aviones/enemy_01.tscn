@@ -29,7 +29,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_qqqno")
 }],
-"loop": true,
+"loop": false,
 "name": &"explode",
 "speed": 8.0
 }]
@@ -37,7 +37,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ixas"]
 size = Vector2(26, 8)
 
-[node name="Enemy_01" type="Area2D" node_paths=PackedStringArray("n_shadow", "n_anim")]
+[node name="Enemy_01" type="Area2D" node_paths=PackedStringArray("n_shadow", "n_anim") groups=["enemy"]]
 script = ExtResource("1_pbgb4")
 n_shadow = NodePath("Sprite2D")
 n_anim = NodePath("AnimatedSprite2D")

@@ -29,7 +29,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_sptl2")
 }],
-"loop": true,
+"loop": false,
 "name": &"explode",
 "speed": 5.0
 }]
