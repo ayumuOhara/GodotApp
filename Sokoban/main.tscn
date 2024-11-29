@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://el1bfaf0pmyb"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_vxfv3"]
+[ext_resource type="PackedScene" uid="uid://dx2t6w0egypkb" path="res://hud.tscn" id="2_lbi1n"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("tile_layer", "obj_layer", "crate_layer", "hud")]
+script = ExtResource("1_vxfv3")
+tile_layer = NodePath("CanvasLayer")
+obj_layer = NodePath("CanvasLayer2")
+crate_layer = NodePath("CanvasLayer3")
+hud = NodePath("HUD")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("2_lbi1n")]
+
+[connection signal="redo" from="HUD" to="." method="_on_hud_redo"]
+[connection signal="reset" from="HUD" to="." method="_on_hud_reset"]
+[connection signal="undo" from="HUD" to="." method="_on_hud_undo"]
