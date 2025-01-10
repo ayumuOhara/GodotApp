@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://cf1ppaywbxbyq"]
+
+[ext_resource type="Script" path="res://score_counter.gd" id="1_04udl"]
+[ext_resource type="Texture2D" uid="uid://b3s2qwris5u53" path="res://assets/UI objects/Number_font (8 x 8).png" id="2_brucw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0whj"]
+atlas = ExtResource("2_brucw")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqh3e"]
+atlas = ExtResource("2_brucw")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq1bb"]
+atlas = ExtResource("2_brucw")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhlgc"]
+atlas = ExtResource("2_brucw")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aomev"]
+atlas = ExtResource("2_brucw")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4ggd"]
+atlas = ExtResource("2_brucw")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbmyc"]
+atlas = ExtResource("2_brucw")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qom1"]
+atlas = ExtResource("2_brucw")
+region = Rect2(16, 8, 8, 8)
+
+[node name="ScoreCounter" type="HBoxContainer" node_paths=PackedStringArray("n_digits")]
+custom_minimum_size = Vector2(64, 8)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+alignment = 2
+script = ExtResource("1_04udl")
+n_digits = [NodePath("TextureRect"), NodePath("TextureRect2"), NodePath("TextureRect3"), NodePath("TextureRect4"), NodePath("TextureRect5"), NodePath("TextureRect6"), NodePath("TextureRect7"), NodePath("TextureRect8")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_c0whj")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jqh3e")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aq1bb")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vhlgc")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aomev")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_o4ggd")
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_gbmyc")
+
+[node name="TextureRect8" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1qom1")

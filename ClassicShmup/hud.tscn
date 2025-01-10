@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3yhdb6om22f7"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_5dfs7"]
+[ext_resource type="Texture2D" uid="uid://d0ftw6l3l6o5d" path="res://assets/UI objects/bar_background.png" id="1_pr07w"]
+[ext_resource type="Texture2D" uid="uid://cbe786ttf1lw1" path="res://assets/UI objects/bar_foreground.png" id="2_djo5g"]
+[ext_resource type="PackedScene" uid="uid://cf1ppaywbxbyq" path="res://score_counter.tscn" id="3_r05c4"]
+[ext_resource type="Texture2D" uid="uid://d0gyfou2tcn8n" path="res://assets/UI objects/GAME_OVER (72 x 8).png" id="4_aw4c6"]
+[ext_resource type="Texture2D" uid="uid://c5c8r04cabdjp" path="res://assets/UI objects/START (48 x 8).png" id="5_kgv60"]
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("n_shield_bar", "n_score_counter", "n_game_over", "n_start_button")]
+script = ExtResource("1_5dfs7")
+n_shield_bar = NodePath("MarginContainer/HBoxContainer/TextureProgressBar")
+n_score_counter = NodePath("MarginContainer/HBoxContainer/ScoreCounter")
+n_game_over = NodePath("CenterContainer/TextureRect")
+n_start_button = NodePath("CenterContainer/StartButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 16)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("1_pr07w")
+texture_progress = ExtResource("2_djo5g")
+
+[node name="ScoreCounter" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_r05c4")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_aw4c6")
+
+[node name="StartButton" type="TextureButton" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("5_kgv60")

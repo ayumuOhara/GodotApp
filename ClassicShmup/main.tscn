@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dioi521fpiqb"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_17v28"]
+[ext_resource type="PackedScene" uid="uid://gtq2irm7ioef" path="res://background.tscn" id="2_24756"]
+[ext_resource type="PackedScene" uid="uid://c8vymjy51at4m" path="res://player.tscn" id="3_7t3em"]
+[ext_resource type="PackedScene" uid="uid://b4tmbt5ricf73" path="res://enemy_anchor.tscn" id="4_vdjco"]
+[ext_resource type="PackedScene" uid="uid://c7ibcgpud134b" path="res://camera.tscn" id="5_7tgg8"]
+[ext_resource type="PackedScene" uid="uid://d3yhdb6om22f7" path="res://hud.tscn" id="6_4ohxx"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("n_player", "n_enemy_anchor", "n_camera", "n_hud")]
+script = ExtResource("1_17v28")
+n_player = NodePath("Player")
+n_enemy_anchor = NodePath("EnemyAnchor")
+n_camera = NodePath("Camera")
+n_hud = NodePath("HUD")
+
+[node name="Background" parent="." instance=ExtResource("2_24756")]
+
+[node name="Player" parent="." instance=ExtResource("3_7t3em")]
+
+[node name="EnemyAnchor" parent="." instance=ExtResource("4_vdjco")]
+
+[node name="Camera" parent="." instance=ExtResource("5_7tgg8")]
+
+[node name="HUD" parent="." instance=ExtResource("6_4ohxx")]
+
+[connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="shield_changed" from="Player" to="." method="_on_player_shield_changed"]

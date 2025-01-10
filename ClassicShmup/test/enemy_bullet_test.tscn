@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctlx8w8sgpc2i"]
+
+[ext_resource type="Script" path="res://test/enemy_bullet_test.gd" id="1_7qp0y"]
+
+[node name="EnemyBulletTest" type="Node2D"]
+script = ExtResource("1_7qp0y")
